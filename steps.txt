@@ -1,0 +1,55 @@
+// Setup for Devops
+
+1. Make sure you have a cloud service like : GCP, Azure, AWS and Digital Ocean.
+
+2.Make sure your project/app is working fine in locally.
+
+3. Purchase a domain and cloud service.
+
+4. Domains can purchased from
+ - NameCheap
+ - Big Rock
+ - Hostinger
+ - Go Daddy
+
+
+ 5. Cloud Service Instance:
+
+ - AWS
+ - Azure
+ - GCP
+ - Digital Ocean
+
+6. Local App Setup: 
+
+1. HTML And Backend App SETUP: 
+
+ - make sure you have build folder and index.html file init
+ - in the same folder you should have simple express server, with these code lines
+
+ ...
+
+ import express from "express";
+ import path from "path";
+ import {fileURLToPath} from "url";
+
+ const --filename = fileURLToPath(import.meta.url);
+ const --dirname = path.dirname(__filename);
+
+ const app = express();
+ const PORT = 5005;
+
+ app.use(express.static(path.join(__dirname, "build")));
+
+ app.get("/rahman", (req, res)=>{
+    try{
+        res.status(200).json({msg: "hello sneha"})
+    } catch(error){
+        res.status(401).json(error)
+    }
+ });
+
+ // new 3 lines 
+ app.get("/*", (req, res)=>{
+    res.sendFile(path.join(__dirname, "build", "index.html"));
+ });
