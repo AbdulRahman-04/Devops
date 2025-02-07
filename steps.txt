@@ -67,3 +67,17 @@
 ...
 
 
+2. React vite with backend setup:
+
+1. Make sure hello world in react is working (tailwind css is optional or bootstrap).
+
+2. cd client
+3. npm run build 
+4. this will generate a dist folder 
+which is a optimised folder for your whole react app
+(delete the build folder from server)
+
+5. mv ../server
+6. cd server
+7. open app.js and change all build folder to dist
+8. npm start
